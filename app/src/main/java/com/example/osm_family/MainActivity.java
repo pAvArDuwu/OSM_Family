@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Lista de familiares con nombres y coordenadas
         ArrayList<Familiar> familiares = new ArrayList<>();
-        familiares.add(new Familiar("Yo", -16.4897, -68.1193));
-        familiares.add(new Familiar("Papá", -16.4890, -68.1185));
-        familiares.add(new Familiar("Mamá", -16.4902, -68.1190));
-        familiares.add(new Familiar("Hermano", -16.4887, -68.1201));
-        familiares.add(new Familiar("Hermana", -16.4895, -68.1178));
+        familiares.add(new Familiar("Papá", -17.85449, -63.16202));
+        familiares.add(new Familiar("Mamá", -17.85450, -63.16202));     // pequeña variación
+        familiares.add(new Familiar("Hermano", -17.85451, -63.16202));   // pequeña variación
+        familiares.add(new Familiar("Tío", -17.8504125, -63.1553205));   // centro del rectángulo de OSM
+        familiares.add(new Familiar("Hermana", -16.492211, -68.162935)); // nueva agregada
 
-        // Agregar marcadores al mapa
+// Agregar marcadores al mapa
         for (Familiar f : familiares) {
             Marker marker = new Marker(map);
             marker.setPosition(new GeoPoint(f.lat, f.lon));
@@ -48,10 +48,13 @@ public class MainActivity extends AppCompatActivity {
             map.getOverlays().add(marker);
         }
 
-        // Centrar mapa en tu ubicación
+// Centrar mapa en el primer familiar (Papá)
         map.getController().setZoom(16.0);
         map.getController().setCenter(new GeoPoint(familiares.get(0).lat, familiares.get(0).lon));
-    }
+
+
+        // Centrar mapa en tu ubicación
+         }
 
     // Clase para manejar familiares
     private static class Familiar {
